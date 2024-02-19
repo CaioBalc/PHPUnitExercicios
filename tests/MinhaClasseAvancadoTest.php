@@ -67,16 +67,24 @@ class MinhaClasseAvancadoTest extends TestCase{
         $this->assertEquals(11, $resultado);
     }
 
-    /**
-     * APERFEIÇOAR O CÓDIGO E ADICIONAR ELE AO MINHACLASSEAVANCADO
-     */
     public function testSomaComArgumentosInvalidos(){
         $lista = new MinhaClasseAvancado();
-    
+        # String sem números
         $this->expectException(\Exception::class);
         $lista->somaComArgumentosInvalidos("Frase tal", "Palavra");
         $this->assertEquals("São aceitos, apenas, valores numéricos", $lista);
+        # String com números
+        $lista->somaComArgumentosInvalidos("2", "3");
+        $this->assertEquals("5", $lista);
+        # Números em string
+        $lista->somaComArgumentosInvalidos("2", "3");
+        $this->assertEquals("5", $lista);
+        # Decimal em string
+        $lista->somaComArgumentosInvalidos("2.5", "3.5");
+        $this->assertEquals("5.5", $lista);
+        # Negativos em string
+        $lista->somaComArgumentosInvalidos("-2", "-3");
+        $this->assertEquals("-5", $lista);
     }
-    
     
 }
