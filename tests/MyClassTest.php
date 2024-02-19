@@ -28,7 +28,6 @@ class MyClassTest extends TestCase {
         $material->method('getMaterialID')->willReturn($materialID);
         $material->method('getTipoMaterial')->willReturn($tipoMaterial);
 
-        // Verifique se os argumentos do construtor foram configurados corretamente.
         $this->assertEquals(1, $material->getMaterialID());
         $this->assertEquals("Papel", $material->getTipoMaterial());
         // Crie um objeto mock da classe MyClass.
