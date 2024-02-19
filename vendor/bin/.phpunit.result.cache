@@ -1,0 +1,1 @@
+{"version":1,"defects":{"MinhaClasseAvancadoTest::testSomar":7,"MinhaClasseAvancadoTest::testSubtrair":7,"MinhaClasseAvancadoTest::testSomaComArgumentosInvalidos":7},"times":{"MinhaClasseAvancadoTest::testSomar":0.002,"MinhaClasseAvancadoTest::testSubtrair":0.001,"MinhaClasseAvancadoTest::testSomaCorreta":0.001,"MinhaClasseAvancadoTest::testSomaComArgumentosInvalidos":0.001}}
