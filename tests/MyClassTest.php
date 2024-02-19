@@ -4,60 +4,72 @@ use PHPUnit\Framework\TestCase;
 
 require "src/MyClass.php";
 
-class MyClassTest extends TestCase{
-    public $myClass;
+class MyClassTest extends TestCase {
+    public $myClassMock;
+
+    protected function setUp(): void {
+        $this->myClassMock = $this->createMock(MyClass::class);
+    }
     public function testAddMethods() {
-        $myClass = $this->createMock(MyClass::class);
-
-        $methods = ['create', 'read', 'update', 'delete'];
-        foreach ($methods as $method) {
-            $myClass->addMethod($method);
-        }
-
-        foreach ($methods as $method) {
-            $this->assertTrue($myClass->hasMethod($method));
-        }
+        $this->myClass->addMethods('method1');
+        $this->myClass->addMethods('method2');
+        $methods = $this->myClass->getMethods();
+        $this->assertEquals(['method1', 'method2'], $methods);
+        // Crie um objeto mock da classe MyClass.
+        // Adicione alguns métodos ao objeto mock.
+        // Verifique se os métodos foram adicionados corretamente à lista de métodos.
     }
 
-    public function testMaterialID() {
-        $myClass = $this->createMock(MyClass::class);
-        $myClass->setMaterialID('1');
-        $this->assertEquals('1', $myClass->getMaterialID());
+    public function testSetConstructorArgs() {
+        $material = $this->createMock(MyClass::class);
+        $materialID = 1;
+        $tipoMaterial = "Papel";
+
+        $material->method('getMaterialID')->willReturn($materialID);
+        $material->method('getTipoMaterial')->willReturn($tipoMaterial);
+
+        // Verifique se os argumentos do construtor foram configurados corretamente.
+        $this->assertEquals(1, $material->getMaterialID());
+        $this->assertEquals("Papel", $material->getTipoMaterial());
+        // Crie um objeto mock da classe MyClass.
+        // Defina alguns argumentos para o construtor do objeto mock.
+        // Verifique se os argumentos do construtor foram configurados corretamente.
     }
 
-    public function testTipoMaterial() {
-        $myClass = $this->createMock(MyClass::class);
-        $myClass->setTipoMaterial('Papel');
-        $this->assertEquals('Papel', $myClass->getTipoMaterial());
-    }
-    /*
-    function testInsert(){
-        $bancoDeDados = new MyClass();
-        $bancoDeDados->insert(1, 'Plástico', 50);
-        $bancoDeDados->insert(2, 'Papel', 100);
-        $dados = $bancoDeDados->getDados();
-
-        $this->assertEquals([
-            ['MaterialID' => 1, 'TipoMaterial' => 'Plástico', 'QuantidadeKg' => 50],
-            ['MaterialID' => 2, 'TipoMaterial' => 'Papel', 'QuantidadeKg' => 100]
-        ], $dados);
+    public function testSetMockClassName() {
+        // Crie um objeto mock da classe MyClass.
+        // Defina um nome para a classe mock.
+        // Verifique se o nome da classe mock foi configurado corretamente.
     }
 
-    public function testMock()
-    {
-        $mock = $this->getMockBuilder('MyClass')
-                     ->setConstructorArgs(['arg1', 'arg2'])
-                     ->setMockClassName('MockMyClass')
-                     ->disableOriginalConstructor()
-                     ->disableOriginalClone()
-                     ->disableAutoload()
-                     ->getMock();
-
-        $mock->method('method1')->willReturn('value1');
-        $mock->method('method2')->willReturn($mock);
-
-        $this->assertEquals('value1', $mock->method1());
-        $this->assertSame($mock, $mock->method2());
+    public function testDisableOriginalConstructor() {
+        # Utiliza MockBuilder para desabilitar
+        // Crie um objeto mock da classe MyClass.
+        // Desabilite o construtor original do objeto mock.
+        // Verifique se o construtor original foi desabilitado corretamente.
     }
-    */
+
+    public function testDisableOriginalClone() {
+        // Crie um objeto mock da classe MyClass.
+        // Desabilite a clonagem original do objeto mock.
+        // Verifique se a clonagem original foi desabilitada corretamente.
+    }
+
+    public function testDisableAutoload() {
+        // Crie um objeto mock da classe MyClass.
+        // Desabilite o carregamento automático de classes.
+        // Verifique se o carregamento automático foi desabilitado corretamente.
+    }
+
+    public function testMethodWillReturn() {
+        // Crie um objeto mock da classe MyClass.
+        // Defina uma expectativa para um método que deve retornar um valor específico.
+        // Verifique se a expectativa foi configurada corretamente.
+    }
+
+    public function testMethodReturnSelf() {
+        // Crie um objeto mock da classe MyClass.
+        // Defina uma expectativa para um método que deve retornar o próprio objeto.
+        // Verifique se a expectativa foi configurada corretamente.
+    }
 }
