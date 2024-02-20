@@ -89,7 +89,7 @@ class MyClassTest extends TestCase {
         ->disableOriginalClone()
         ->getMock();
 
-        print_r ($clone = clone $mockBuilder);
+        $clone = clone $mockBuilder;
         assertEquals(1, $clone->materialID);
         assertEquals("Papel", $clone->tipoMaterial);
         // Crie um objeto mock da classe MyClass.
