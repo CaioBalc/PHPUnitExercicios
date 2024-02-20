@@ -10,12 +10,7 @@ class MinhaClasseAvancado {
         return array_sum($lista);
     }
 
-    function subtrair($a, $b, /*array $lista*/){
-        /*
-        return array_reduce(array_slice($lista, 1), function ($resultado, $elemento) {
-            return $resultado - $elemento;
-        }, reset($lista));
-        */
+    function subtrair($a, $b){
         if (!is_numeric($a) ||!is_numeric($b) ) {
             return 0;
         }

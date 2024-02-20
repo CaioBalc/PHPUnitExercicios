@@ -74,8 +74,8 @@ class ListaNumericaTest extends TestCase{
         # Lista com zero
         $this->assertSame([0, 0], $listaNumerica->ordenarLista([0, 0]));
 
-# Lista com diversos valores
-$this->assertEquals([-10, -5, 0, 4, 20], $listaNumerica->ordenarLista([-10, 0, -5, 20, 4]));
+        # Lista com diversos valores
+        $this->assertEquals([-10, -5, 0, 4, 20], $listaNumerica->ordenarLista([-10, 0, -5, 20, 4]));
     }
 
     function testFiltrarNumerosPares(){

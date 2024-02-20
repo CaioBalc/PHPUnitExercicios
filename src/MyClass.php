@@ -23,22 +23,6 @@ class MyClass {
         return $this->tipoMaterial;
     }
 
-    /*
-    public function setMockClassName($mockClassName) {
-        $this->mockClassName = $mockClassName;
-    }
-    public function getMockClassName() {
-        return $this->mockClassName;
-    }
-
-    public function disableOriginalConstructor() {
-        $this->disableOriginalConstructor = true;
-    }
-    public function originalConstructorDisabled() {
-        return $this->disableOriginalConstructor;
-    }
-    */
-
     public function returnMaterial() {
         return self::class;
     }

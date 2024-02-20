@@ -25,10 +25,6 @@ class MinhaClasseAvancadoTest extends TestCase{
 
     public function testSubtrair(){
         $lista = new MinhaClasseAvancado;
-        /*
-        # Valores positivos
-        $this->assertEquals(1, $lista->subtrair([3, 2]));
-        */
         # Valores positivos
         $resultado = $lista->subtrair(2, 3);
         $this->assertEquals(-1, $resultado);
